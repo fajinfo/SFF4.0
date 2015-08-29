@@ -843,7 +843,6 @@ PubSub implementation
             putCatalog = function () {
                 out('/Type /Catalog');
                 out('/Pages 1 0 R');
-                // @TODO: Add zoom and layout modes
                 out('/OpenAction [3 0 R /FitH null]');
                 out('/PageLayout /OneColumn');
                 events.publish('putCatalog');
@@ -1022,7 +1021,6 @@ PubSub implementation
                 default:
                     throw new Error('Output type "' + type + '" is not supported.');
                 }
-                // @TODO: Add different output options
             };
 
         if (unit === 'pt') {
@@ -1576,7 +1574,6 @@ PubSub implementation
         @name getFontList
         */
         API.getFontList = function () {
-            // TODO: iterate over fonts array or return copy of fontmap instead in case more are ever added.
             var list = {},
                 fontName,
                 fontStyle,

@@ -227,7 +227,7 @@
 			
 			// length extensions
 				svg.Property.prototype.getDPI = function(viewPort) {
-					return 96.0; // TODO: compute?
+					return 96.0;
 				}
 				
 				svg.Property.prototype.getEM = function(viewPort) {
@@ -1162,7 +1162,6 @@
 			this.base(node);
 					
 			var d = this.attribute('d').value;
-			// TODO: convert to real lexer based on http://www.w3.org/TR/SVG11/paths.html#PathDataBNF
 			d = d.replace(/,/gm,' '); // get rid of all commas
 			d = d.replace(/([MmZzLlHhVvCcSsQqTtAa])([MmZzLlHhVvCcSsQqTtAa])/gm,'$1 $2'); // separate commands from commands
 			d = d.replace(/([MmZzLlHhVvCcSsQqTtAa])([MmZzLlHhVvCcSsQqTtAa])/gm,'$1 $2'); // separate commands from commands
@@ -1457,7 +1456,7 @@
 							pp.addMarkerAngle(halfWay, ah - dir * Math.PI / 2);
 							pp.addMarkerAngle(cp, ah - dir * Math.PI);
 
-							bb.addPoint(cp.x, cp.y); // TODO: this is too naive, make it better
+							bb.addPoint(cp.x, cp.y);
 							if (ctx != null) {
 								var r = rx > ry ? rx : ry;
 								var sx = rx > ry ? 1 : rx / ry;
@@ -1978,7 +1977,6 @@
 			}
 			
 			this.getBoundingBox = function () {
-				// TODO: implement
 				return new svg.BoundingBox(this.attribute('x').toPixels('x'), this.attribute('y').toPixels('y'), 0, 0);
 			}
 			
@@ -2545,7 +2543,6 @@
 			this.base(node);
 			
 			this.apply = function(ctx, x, y, width, height) {
-				// TODO: implement
 			}
 		}
 		svg.Element.feMorphology.prototype = new svg.Element.ElementBase;

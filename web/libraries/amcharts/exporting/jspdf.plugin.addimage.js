@@ -218,7 +218,7 @@ jsPDFAPI.addImage = function(imageData, format, x, y, w, h) {
 		'q'
 		, coord(w)
 		, '0 0'
-		, coord(h) // TODO: check if this should be shifted by vcoord
+		, coord(h)
 		, coord(x)
 		, vcoord(y + h)
 		, 'cm /I'+info['i']

@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
-use AppBundle\Form\changePasswordType;
+use AppBundle\Form\ChangePasswordType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -101,7 +101,7 @@ class UserController extends Controller {
             }
         }
 
-        $form = $this->createForm(new changePasswordType(), $user);
+        $form = $this->createForm(new ChangePasswordType(), $user);
 
         $request = $this->get('request');
         if($request->getMethod() == 'POST') {
