@@ -1,0 +1,117 @@
+{%  set titre = "Editer un utilisateur" %}
+{% extends ':admin:layout.html.twig' %}
+
+{% block actions %}
+    <a class="ShowLoading" href="{{ path('admin_user_liste') }}">Retour</a>
+    {%  if user is defined %}
+    <a class="ShowLoading" onclick="$.fancybox.open({
+            href: $(this).attr('href'),
+            type:'ajax',
+            fitToView:false,
+            padding:0,
+            modal: true,
+            openEffect:'none',
+            closeEffect:'none',
+            topRatio:0.1});
+        return false;" href="{{ path('admin_user_supprimer', { 'id': user.id }) }}" title="Supprimer">Supprimer</a>
+        <a class="ShowLoading" onclick="$.fancybox.open({
+            href: $(this).attr('href'),
+            type:'ajax',
+            fitToView:false,
+            padding:0,
+            modal: true,
+            openEffect:'none',
+            closeEffect:'none',
+            topRatio:0.1});
+        return false;" href="{{ path('admin_user_changepassword', {'id': user.id }) }}">Changer le mot de passe</a>
+    {% endif %}
+{% endblock %}
+
+{% block corps %}
+    <form method="post">
+        <table class="FormLayout">
+            <tr>
+                <td class="Label">{{ form_label(form.username) }}</td>
+                <td class="Field">{{ form_widget(form.username, {'attr': {'class': 'Size2'}})  }} <div class="Error">{{ form_errors(form.username) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.email) }}</td>
+                <td class="Field">{{ form_widget(form.email, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.email) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.nom) }}</td>
+                <td class="Field">{{ form_widget(form.nom, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.nom) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.prenom) }}</td>
+                <td class="Field">{{ form_widget(form.prenom, {'attr': {'class': 'Size2'}}) }}
+                    <div class="Error">{{ form_errors(form.prenom) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.anniversaire) }}</td>
+                <td class="Field">{{ form_widget(form.anniversaire, {'attr': {'class': 'Size2'}}) }}
+                    <div class="Error">{{ form_errors(form.anniversaire) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.siteWeb) }}</td>
+                <td class="Field">{{ form_widget(form.siteWeb, {'attr': {'class': 'Size2'}}) }}
+                    <div class="Error">{{ form_errors(form.siteWeb) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.corpsPompier) }}</td>
+                <td class="Field">{{ form_widget(form.corpsPompier, {'attr': {'class': 'Size2'}}) }}
+                    <div class="Error">{{ form_errors(form.corpsPompier) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.signature) }}</td>
+                <td class="Field">{{ form_widget(form.signature, {'attr': {'class': 'Size2'}}) }}
+                    <div class="Error">{{ form_errors(form.signature) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.enabled) }}</td>
+                <td class="Field">{{ form_widget(form.enabled) }}
+                    <div class="Error">{{ form_errors(form.enabled) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.locked) }}</td>
+                <td class="Field">{{ form_widget(form.locked) }}
+                    <div class="Error">{{ form_errors(form.locked) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.roles) }}</td>
+                <td class="Field">{{ form_widget(form.roles, {'attr': {'class': 'Size2', 'style': 'height:130px;'}}) }}
+                    <div class="Error">{{ form_errors(form.roles) }}</div>
+                </td>
+            </tr>
+            {%  if user is not defined %}
+                <tr>
+                    <td class="Label">{{ form_label(form.plainPassword.first) }}</td>
+                    <td class="Field">{{ form_widget(form.plainPassword.first, {'attr': {'class': 'Size2'}}) }}
+                        <div class="Error">{{ form_errors(form.plainPassword.first) }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="Label">{{ form_label(form.plainPassword.second) }}</td>
+                    <td class="Field">{{ form_widget(form.plainPassword.second, {'attr': {'class': 'Size2'}}) }}
+                        <div class="Error">{{ form_errors(form.plainPassword.second) }}</div>
+                    </td>
+                </tr>
+            {%  endif %}
+
+            <tr class="Bottom">
+                <td class="Label"><br/></td>
+                <td>
+                    <button class="Button" type="submit">Sauvegarder</button>
+                </td>
+            </tr>
+        </table>
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

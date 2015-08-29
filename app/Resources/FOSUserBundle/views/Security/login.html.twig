@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Swiss Firefighters - Connexion</title>
+    {% stylesheets filter='cssrewrite'
+    'css/nexus.css'
+    'libraries/fancybox/jquery.fancybox.css'
+    'libraries/chosen/jquery.chosen.css'
+    'css/admin.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+</head>
+<body>
+<div class="LoginContainer">
+    <div class="SectionTitle">Formulaire de connexion</div>
+    <div class="LoginContent">
+        {% if error %}
+            <div class="Flash Error" id="login_error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        <form class="ShowLoading" action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+            <table class="FormLayout">
+                <tr>
+                    <td class="Row">
+                        <label for="login_username">Nom d'utilisateur <span class="required">*</span></label>
+                        <input type="text" name="_username" value="{{ last_username }}" class="Size2"
+                               id="login_username"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="Row">
+                        <label for="login_password">Mot de passe <span class="required">*</span></label>
+                        <input type="password" name="_password" class="Size2" id="login_password"/>
+                    </td>
+                </tr>
+                <tr class="Bottom">
+                    <td>
+                        <button class="Button Right" type="submit">Connexion</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+{% javascripts
+'js/jquery.js'
+'js/jquery-ui.js'
+'libraries/chosen/jquery.chosen.js'
+'js/shorten.js'
+'js/app.js'
+'js/nexus.js'
+'libraries/fancybox/jquery.fancybox.js' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+</html>

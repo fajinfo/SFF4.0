@@ -1,0 +1,47 @@
+{%  set titre = "Utilisateurs" %}
+{% extends ':admin:layout.html.twig' %}
+
+{% block actions %}
+<a class="ShowLoading" href="{{ path('admin_user_nouveau') }}">Ajouter un utilisateur</a>
+{% endblock %}
+
+{% block corps %}
+        <div id="user_list">
+            <div id="datacontainer">
+            <table id="dataTable" class="Datagrid Fixed">
+                <thead>
+                <tr>
+                    <th>Nom d'utilisateur</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>E-Mail</th>
+                    <th>Rôle</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td><a class="ShowLoading" href="{{ path('admin_user_modifier', { 'id': user.id }) }}" title="Editer">{{ user.username }}</a></td>
+                        <td>{{ user.nom }}</td>
+                        <td>{{ user.prenom }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.roleFrancais }}</td>
+                        <td><a class="ShowLoading" href="{{ path('admin_user_modifier', { 'id': user.id }) }}" title="Editer"><span class="fa fa-pencil fa-lg"></span></a>
+                            <a class="ShowLoading" onclick="$.fancybox.open({
+            href: $(this).attr('href'),
+            type:'ajax',
+            fitToView:false,
+            padding:0,
+            modal: true,
+            openEffect:'none',
+            closeEffect:'none',
+            topRatio:0.1});
+        return false;" href="{{ path('admin_user_supprimer', { 'id': user.id }) }}" title="Supprimer"><span class="fa fa-trash-o fa-lg"></span></a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+{% endblock %}

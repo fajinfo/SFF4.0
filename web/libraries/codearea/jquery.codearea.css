@@ -1,0 +1,70 @@
+.codearea * {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+.codearea {
+    border: 1px solid #ccc;
+}
+
+.codearea .structure {
+    display: table;
+    width: 100%;
+}
+
+.codearea .structure .row {
+    display: table-row;
+}
+
+.codearea .structure .row .cell {
+    display: table-cell;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.codearea .structure .row .cell.nb {
+    border-right: 1px solid #ccc;
+    background-color: #f1f1f1;
+    position: relative;
+}
+
+.codearea .structure .row .cell.nb .lines-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.codearea .structure .row .cell.nb .lines {
+    padding: 5px 0;
+    position: absolute;
+    right: 3px;
+}
+
+.codearea .structure .row .cell.nb .lines .lineno {
+    color: #aaa;
+    text-align: right;
+}
+
+.codearea textarea {
+    border: 0;
+    width: 100% !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background-color: white;
+    outline: none;
+    float: left;
+    padding: 5px;
+}
+
+.codearea textarea,
+.codearea .structure .row .cell.nb .lines .lineno {
+    font-size: 12px !important;
+    font-family: "Panic Sans", monospace;
+    line-height: 18px;
+    white-space: nowrap;
+}

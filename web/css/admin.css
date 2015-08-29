@@ -1,0 +1,877 @@
+.HeaderTitle {
+    background-image: url(../images/logo_header.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    width: 265px;
+    height: 45px;
+    padding: 10px 0 0 10px;
+}
+
+.ModalContent.Medium {
+    width: 620px
+}
+
+.ModalContent.Wide {
+    width: 960px;
+    position: relative;
+}
+
+.ModalHeader h2 a {
+    font-size: 12px;
+    margin-left: 30px;
+}
+
+.ContainerTop20Left10 {
+    margin: 20px 0 0 10px;
+}
+
+.FormLayout div.Struct {
+    float: left;
+    margin-right: 10px;
+}
+
+.FormLayout a.FormLink {
+    line-height: 26px;
+}
+
+.Drop.Dates ul {
+    padding: 0 !important;
+}
+
+.Drop.Dates ul span {
+    max-height: 300px;
+    overflow: auto;
+    display: block;
+    width: 170px;
+    padding: 5px 0;
+}
+
+.Drop.Dates ul li.Group {
+    padding: 8px 10px;
+}
+
+.LoginContainer {
+    top: 10%;
+    padding-top: 104px;
+    background-image: url(../images/logo_login.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.FormLayout div.Struct.Size1 {
+    width: 153px;
+}
+
+.FormLayout div.Struct.Size2 {
+    width: 303px;
+}
+
+div.checkbox_list.Multiple {
+    border: 1px solid #ccc;
+    float: left;
+    padding: 5px 0 5px 0;
+    width: 300px;
+    height: 150px;
+    overflow-y: auto;
+}
+
+div.checkbox_list.Multiple span {
+    clear: left;
+    padding: 5px 0 5px 10px;
+}
+
+.OrdersGroupsError {
+    color: red;
+}
+
+span.FieldError .OrdersGroupsError {
+    color: inherit;
+}
+
+table.Datagrid .OtBlock {
+    border-left: 1px solid #aaa;
+}
+
+#datacontainer {
+    margin: 15px;
+}
+
+ul.Tree li.Group,
+div.Drop.Dates ul li.Group {
+    font-weight: bold;
+    padding-left: 0;
+    background-image: url(../images/grey_separator.gif);
+    background-position: center center;
+    background-repeat: repeat-x;
+    margin: 5px 0;
+}
+
+div.Drop.Dates ul li.Group {
+    padding: 5px 10px;
+}
+
+ul.Tree li.Group span,
+div.Drop.Dates ul li.Group b {
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 10px;
+    margin: 0;
+}
+
+table.Datagrid th.TopHead {
+    border: 1px solid #aaa;
+    border-bottom-color: #ddd;
+    text-align: center;
+}
+
+.qtip-atlantis {
+    max-width: none;
+    background-color: white;
+    border-color: #ccc;
+}
+
+.qtip-atlantis .qtip-content {
+    font-size: 12px;
+    padding: 10px;
+}
+
+.qtip-atlantis .qtip-titlebar {
+    font-size: 14px;
+    background-color: #efefef;
+    padding: 10px;
+}
+
+.qtip-atlantis .qtip-content div {
+    line-height: 16px;
+}
+
+div.Drop.Dates ul li.Group,
+a.Affectation {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+
+.Smooth {
+    -webkit-font-smoothing: antialiased;
+}
+
+div.ModalFooter .Button.Delete {
+    background: red;
+    border-color: red;
+}
+
+iframe.PdfFrame {
+    position: absolute;
+    margin: 0;
+    background: url(../images/global_loading.gif) transparent center 100px no-repeat;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+div.checkbox_list.Users {
+    width: 520px;
+}
+
+div.checkbox_list.Users span {
+    width: 240px;
+}
+
+.ChooseEvents {
+    list-style: none;
+    margin: -15px 0;
+}
+
+.ChooseEvents li {
+    border-top: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.ChooseEvents li:first-child {
+    border-top-color: white;
+}
+
+.ChooseEvents li a {
+    display: block;
+    border: 1px solid white;
+    padding: 10px;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.ChooseEvents li a:hover {
+    background-color: #fef1b9;
+    border-color: #bfcedb;
+}
+
+.ChooseEvents .Title {
+    display: block;
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.ChooseEvents .Date {
+    color: #363636;
+}
+
+/**
+ * ----------------
+ *  CHOSEN OVERRIDE
+ * ----------------
+ */
+div.SectionSearch select {
+    width: 242px;
+    padding: 2px 2px;
+    line-height: 19px;
+    height: 21px;
+}
+
+div.SectionSearch div.chzn-container {
+    height: 21px;
+    line-height: 21px;
+}
+
+div.SectionSearch div.chzn-container a {
+    height: 21px;
+    line-height: 21px;
+}
+
+div.SectionSearch div.chzn-container b {
+    background-position: 0 -3px;
+}
+
+div.chzn-container-active .chzn-single-with-drop div b {
+    background-position: -16px 1px;
+}
+
+.chzn-search div.SearchClean {
+    display: none;
+}
+
+.chzn-container-single .chzn-search input {
+    background: #fff url(../libraries/chosen/chosen-sprite.png) no-repeat 100% -20px !important;
+}
+
+/**
+ * ----------------
+ *  PLANNING
+ * ----------------
+ */
+.Planning .Corner,
+.Planning .HeaderContainer,
+.Planning .LeftContainer,
+.Planning .ContentContainer {
+    position: absolute;
+    overflow: hidden;
+}
+
+.Planning .Corner,
+.Planning .Filter,
+.Planning .HeaderContainer,
+.Planning .LeftContainer,
+.Planning .ContentContainer {
+    z-index: 15;
+}
+
+.Planning .HeaderContainer .Headers,
+.Planning .ContentContainer .Content,
+.Planning .HeaderContainer .Item,
+.Planning .HeaderContainer .Hours,
+.Planning .ContentContainer .Day,
+.Planning .ContentContainer .Line,
+.Planning .Hour {
+    float: left;
+}
+
+.Planning .Corner,
+.Planning .Filter,
+.Planning .LeftContainer {
+    width: 200px;
+}
+
+.Planning .Corner,
+.Planning .HeaderContainer {
+    height: 40px;
+    top: 0;
+    background-color: #f4f2ea;
+    border-bottom: 1px solid #cac8bd;
+}
+
+.Planning .LeftContainer .Line,
+.Planning .ContentContainer .Hour {
+    border-bottom: 1px solid #ebebeb;
+}
+
+.Planning .Line,
+.Planning .Line .Hour {
+    height: 30px;
+}
+
+.Planning .Hour {
+    width: 60px;
+}
+
+.Planning .HeaderContainer,
+.Planning .ContentContainer {
+    left: 200px;
+}
+
+.Planning .HeaderContainer,
+.Planning .ContentContainer {
+    right: 0;
+}
+
+.Planning .LeftContainer,
+.Planning .ContentContainer {
+    bottom: 0;
+    top: 40px;
+}
+
+.Planning .Corner {
+    border-right: 1px solid #cac8bd;
+}
+
+.Planning .Filter {
+    position: absolute;
+}
+
+.Planning .Filter .ms-parent {
+    margin: 9px 9px 0 8px;
+    font-size: 11px;
+}
+
+.Planning .Filter .ms-choice {
+    height: 22px;
+}
+
+.Planning .Filter .ms-choice span {
+    line-height: 20px;
+}
+
+.Planning .Filter .ms-choice .nipple {
+    background-image: url(../images/action_dropdown_nipple.gif);
+    background-position: right center;
+    width: 7px;
+    height: 4px;
+    top: 9px;
+    right: 6px;
+}
+
+.Planning .Filter .ms-choice .placeholder {
+    color: #bbb;
+}
+
+.Planning .LeftContainer {
+    border-right: 1px solid #cac8bd;
+}
+
+.Planning .HeaderContainer .Item,
+.Planning .ContentContainer .Day {
+    width: 1440px;
+}
+
+.Planning .ContentContainer .Day {
+    border-right: 1px solid #ccc;
+    z-index: 9;
+}
+
+.Planning .HeaderContainer .Hour,
+.Planning .HeaderContainer .Item {
+    border-right: 1px solid #cac8bd;
+}
+
+.Planning .ContentContainer .Hour {
+    border-right: 1px solid #eee;
+}
+
+.Planning .HeaderContainer .Item .Date {
+    position: relative;
+}
+
+.Planning .HeaderContainer .Item .Date .Nav {
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    top: 0;
+}
+
+.Planning .HeaderContainer .Item .Date .Nav.Next {
+    background-image: url(../images/planning_next.png);
+    right: 0;
+}
+
+.Planning .HeaderContainer .Item .Date .Nav.Prev {
+    background-image: url(../images/planning_prev.png);
+    left: 0;
+}
+
+.Planning .HeaderContainer .Hour,
+.Planning .HeaderContainer .Item .Date {
+    text-align: center;
+}
+
+.Planning .HeaderContainer .Item .Date {
+    height: 20px;
+    line-height: 20px;
+}
+
+.Planning .HeaderContainer .Hours {
+    bottom: 0;
+    font-size: 10px;
+    border-top: 1px solid #cac8bd;
+}
+
+.Planning .HeaderContainer .Hours .Hour {
+    line-height: 19px;
+    height: 19px;
+}
+
+.Planning .LeftContainer {
+    background-color: white;
+}
+
+.Planning .LeftContainer .Line {
+    padding: 0 40px 0 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 11px;
+    line-height: 29px;
+    background-position: 175px center;
+    background-repeat: no-repeat;
+}
+
+.Planning .LeftContainer .Line a {
+    color: inherit;
+}
+
+.Planning .LeftContainer .Line a:hover {
+    border-bottom: 1px solid #aaa;
+}
+
+.Planning .LeftContainer .Line.Adr {
+    background-image: url(../images/icon_planning_adr.png);
+}
+
+.Planning .ContentContainer {
+    overflow: scroll;
+    right: 0;
+}
+
+.Planning .ContentContainer .Content {
+    overflow: hidden;
+    position: relative;
+}
+
+.Planning .ContentContainer .Line {
+    clear: both;
+    position: relative;
+    overflow: hidden;
+}
+
+.Planning .LeftContainer .Line.Last,
+.Planning .ContentContainer .Line.Last .Hour {
+    border-bottom-color: #cac8bd;
+}
+
+.Planning .ContentContainer .Hour {
+    cursor: pointer;
+}
+
+.Planning .ContentContainer .Hour .Placeholder {
+    height: 23px;
+    width: 60px;
+    margin-top: 3px;
+    position: absolute;
+    background-color: gray;
+}
+
+.Planning .ContentContainer .Hour.Off {
+    background-color: #f4f7f4;
+    cursor: default;
+}
+
+.Planning .Hour.Last {
+    border-right: none;
+    width: 59px;
+}
+
+.Planning .Affectation,
+.Planning .Affectation span {
+    height: 23px;
+    line-height: 23px;
+    color: white;
+    overflow: hidden;
+    font-size: 11px;
+}
+
+.Planning .ContentContainer .Hour .Placeholder,
+.Planning .Affectation {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.Planning .Affectation {
+    position: absolute;
+    z-index: 10;
+    margin-top: 3px;
+    background-color: #17b2fb;
+}
+
+.Planning .Affectation span {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 6px;
+    right: 6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.Planning .Affectation .Details {
+    display: none;
+}
+
+.Planning .Affectation .Details div {
+    white-space: nowrap;
+}
+
+.Planning .Affectation.Green { background: #65C16F; }
+.Planning .Affectation.Orange { background: orange; }
+
+.Planning .Affectation.Back {
+    margin-top: 0;
+    height: 29px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.Planning .Affectation.Back span {
+    line-height: 30px;
+}
+
+.Planning .Affectation.Holiday {
+    background: #eee;
+    color: darkgrey;
+}
+
+.Planning .Affectation.Maintenance {
+    background: darkred;
+}
+
+.Planning .Affectation.Holiday span {
+    color: darkgrey;
+}
+
+.Planning .Affectation.Holiday,
+.Planning .Affectation.Maintenance {
+    cursor: default;
+}
+
+.Planning .Affectation.Start {
+    border-top-left-radius: 0;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-top-left-radius: 0;
+
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.Planning .Affectation.End {
+    border-top-right-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-top-right-radius: 0;
+
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.Planning .ContentContainer .Content .Now {
+    position: absolute;
+    left: 30px;
+    bottom: 0;
+    top: 0;
+    width: 0;
+    border-left: 1px solid red;
+    z-index: 20;
+    display: none;
+}
+
+.Planning .Line.Selected {
+    background-color: #fff8ca;
+}
+
+.Planning .Line.Selected .Hour.Off {
+    background-color: #fff3a1;
+}
+
+/**
+ * ----------------
+ *  MULTI ELEMENTS
+ * ----------------
+ */
+.MultiElement {
+    list-style: none;
+    margin-top: -10px;
+}
+
+.MultiElement li,
+.MultiElement li.ElementPlaceholder {
+    position: relative;
+    margin-top: 10px;
+    padding-right: 30px;
+    clear: both;
+}
+
+.MultiElement li.ElementPlaceholder {
+    padding-right: 0;
+}
+
+.MultiElement table.Structure {
+    border-collapse: separate;
+    border-spacing: 1px;
+    background-color: #ccc;
+    table-layout: fixed;
+}
+
+.MultiElement li.SingleLine {
+    padding-right: 45px;
+    margin-top: -1px;
+}
+
+.MultiElement li.SingleLine:first-child {
+    margin-top: 10px;
+}
+
+.MultiElement table.Structure td,
+.MultiElement table.Structure th {
+    position: relative;
+    padding: 0;
+    vertical-align: top;
+}
+
+.MultiElement table.Structure th {
+    font-weight: normal;
+    font-size: 11px;
+    text-align: left;
+    padding: 8px 5px 0 5px;
+    background-color: #efefef;
+}
+
+.MultiElement table.Structure input,
+.MultiElement table.Structure textarea,
+.MultiElement table.Structure select {
+    border: 0;
+    height: 26px;
+    width: 100%;
+}
+
+.MultiElement table.Structure textarea {
+    padding: 4px 4px;
+}
+
+.MultiElement li .Btn {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.MultiElement li .Btn i {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.MultiElement li .Delete.Btn {
+    top: 5px;
+    bottom: auto;
+}
+
+.MultiElement li .Move.Btn {
+    top: 50%;
+    margin-top: -8px;
+    cursor: ns-resize;
+}
+
+.MultiElement li.SingleLine .Btn {
+    top: 5px;
+    bottom: 0;
+    margin: 0;
+}
+
+.MultiElement li.SingleLine .Delete.Btn {
+    right: 20px;
+}
+
+.MultiElement li .Add.Btn i {
+    background-image: url(../images/icon_add.png);
+}
+
+.MultiElement li .Move.Btn i {
+    background-image: url(../images/icon_move.png);
+}
+
+.MultiElement li .Delete.Btn i {
+    background-image: url(../images/icon_delete.png);
+}
+
+.MultiElement .Structure .Datepicker {
+    width: 100%;
+}
+
+.MultiElement .Structure .Datepicker .Button {
+    height: 28px;
+    z-index: 30;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    bottom: -1px;
+}
+
+.MultiElement .ElementPlaceholder {
+    border: 1px dotted #ccc;
+}
+
+/**
+ * ----------------
+ *  WORKFORCE
+ * ----------------
+ */
+.Workforce {
+    table-layout: fixed;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.Workforce td {
+    padding: 5px;
+    text-align: right;
+    width: 40px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.Workforce tr.Headers td {
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.Workforce tr.Headers td.SubHeader {
+    border-top: none;
+    border-left: none;
+}
+
+.Workforce tr.Headers td div {
+    display: inline-block;
+    white-space: nowrap;
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+}
+
+.Workforce td.SubHeader {
+    text-align: left;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.Workforce td.TotalSum {
+    border-left-width: 4px;
+}
+
+.Workforce tr.Total td {
+    background-color: #6fc4fd;
+}
+
+.Workforce tr.TotalCp td {
+    background-color: #bfbfbf;
+}
+
+.Workforce tr.Quit td {
+    background-color: #d8e4bc;
+}
+
+.Workforce tr.Holiday td {
+    background-color: #b8dee9;
+}
+
+.Workforce tr.Backoffice td {
+    background-color: #a0a0a0;
+}
+
+.Workforce tr.Mission td {
+    background-color: #77933e;
+}
+
+.Workforce tr.Driving td {
+    background-color: #b8dee9;
+}
+
+.Workforce tr.Instruction td {
+    background-color: #f1a93d;
+}
+
+.DashboardBox {
+  margin: 0px 1%;
+  padding: 0;
+  width: 22.8%;
+  min-width: 235px;
+  display: inline-block;
+  color: #fff;
+  border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+}
+.DashboardBox h3 {
+    font-size: 38px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    padding: 0;
+    white-space: nowrap;
+}
+.DashboardBox i {
+  color: rgba(0, 0, 0, 0.15);
+    font-size: 90px;
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    transition: all 0.3s linear 0s;
+    z-index: 0;
+}
+.DashboardBox h3 {
+  padding: 20px;
+}
+.DashboardBox p {
+  background-color: rgba(0, 0, 0, 0.15);
+  width: 100%;
+  line-height: 2em;
+  margin-top: 30px;
+  margin-bottom: 0;
+  padding: 10px;
+}
+.blue {
+  background-color: #00c0ef !important;
+}
+.red {
+  background-color: #dd4b39 !important;
+}

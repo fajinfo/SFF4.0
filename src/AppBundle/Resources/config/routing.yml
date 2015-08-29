@@ -1,0 +1,33 @@
+admin_change_password:
+    path:   /admin/utilisateurs/changer-mot-de-passe
+    defaults: { _controller: AppBundle:Default:ChangePassword}
+    options:
+        expose: true
+admin_user_liste:
+    path:   /admin/utilisateurs
+    defaults: { _controller: AppBundle:User:liste }
+admin_user_nouveau:
+    path:   /admin/utilisateurs/nouveau
+    defaults: { _controller: AppBundle:User:nouveau}
+admin_user_modifier:
+    path:   /admin/utilisateurs/modifier/{id}
+    defaults: { _controller: AppBundle:User:modifier }
+    requirements:
+        id: \d+
+admin_user_supprimer:
+    path:   /admin/utilisateurs/supprimer/{id}
+    defaults: { _controller: AppBundle:User:supprimer }
+    requirements:
+        id: \d+
+admin_user_supprimerok:
+    path:   /admin/utilisateurs/supprimerok/{id}
+    defaults: { _controller: AppBundle:User:supprimerok }
+    requirements:
+        id: \d+
+admin_user_changepassword:
+    path:   /admin/utilisateurs/changerMotDePasse/{id}
+    defaults: { _controller: AppBundle:User:changePassword }
+    requirements:
+        id: \d+
+    options:
+        expose: true

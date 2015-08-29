@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    {% if titre is defined %}
+        <title>Swiss-Firefighters - {{ titre }}</title>
+    {% else %}
+        <title>Swiss-Firefighters - Administration</title>
+    {% endif %}
+
+    {% stylesheets filter='cssrewrite'
+    'css/nexus.css'
+    'libraries/fancybox/jquery.fancybox.css'
+    'libraries/chosen/jquery.chosen.css'
+    'css/admin.css'
+    'css/datatables.min.css'
+    'css/font-awesome.css'%}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+</head>
+<body>
+
+<noscript>
+    <div class="ModalOverlay"></div>
+    <div class="ModalOuter NoScript">
+        <div class="ModalInner">
+            <div class="ModalContent">
+                Le javascript est désactivé sur votre navigateur. Celui-ci est nécessaire au bon fonctionnement de la
+                console de gestion.<br/><br/>Veuillez le réactiver afin de pouvoir continuer !
+            </div>
+        </div>
+    </div>
+</noscript>
+
+<!--[if IE 7]>
+<div class="ModalOverlay"></div>
+<div class="ModalOuter NoScript">
+    <div class="ModalInner">
+        <div class="ModalContent">
+            Pour des raisons de sécurité, Swiss Firefighters n'est pas compatible avec les version Internet Explorer
+            inférieures à 8.0.<br/><br/>Veuillez mettre à jour votre navigateur web. Nous vous rappelons qu'un
+            navigateur pas à jour ne peut, en aucun cas, garantir la sécurité de votre machine ainsi que vos données
+            privées lors de la navigation sur Internet.
+        </div>
+    </div>
+</div>
+<![endif]-->
+
+<div id="SmallLoading" class="SmallLoading" style="display: none;"></div>
+<div id="Loading" class="Loading">
+    <span></span>
+</div>
+
+<ul class="HeaderNavigation">
+    <li>{{ "now"|localizeddate('full', 'none') }}</li>
+    <li class="Separator"></li>
+    <li>
+        <a onclick="$.fancybox.open({
+            href: $(this).attr('href'),
+            type:'ajax',
+            fitToView:false,
+            padding:0,
+            modal: true,
+            openEffect:'none',
+            closeEffect:'none',
+            topRatio:0.1});
+        return false;" href="{{ path('admin_user_changepassword', {'id': app.user.id }) }}">{{ app.user.nom }} {{ app.user.prenom }}
+            ({{ app.user.username }})</a></li>
+    <li class="Separator"></li>
+    <li><a class="ShowLoading" onclick="return confirm('Êtes-vous sûr ?');"
+           href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+    </li>
+</ul>
+
+<div class="HeaderTitle"></div>
+<div class="Navigation">
+    <a class="ShowLoading" href="{{ path('sff_admin_homepage') }}"><span
+                style="background-image: url({{ asset('images/nav_dashboard.png') }})" class="Icon"></span><span
+                class="Label">Tableau de bord</span></a>
+
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+    <a class="ShowLoading" href="{{ path('admin_user_liste') }}"><span
+                style="background-image: url({{ asset('images/nav_users.png') }})" class="Icon"></span><span
+                class="Label">Utilisateurs</span></a>
+    <a class="ShowLoading" href=""><span
+                style="background-image: url({{ asset('images/nav_settings.png') }})" class="Icon"></span><span
+                class="Label">Paramètres</span></a></div>
+    {% endif %}
+
+<div class="Wrapper">
+    <div class="Main">
+        <div class="SectionTitle">
+            {% if titre is defined %}
+                {{ titre }}
+            {% else %}
+                Administration
+            {% endif %}
+        </div>
+        <div class="SectionActions">
+            {% block actions %}
+            {%  endblock %}
+        </div>
+        <div class="SectionContent">
+        {% block corps %}
+        {% endblock corps %}
+        </div>
+        </div>
+    </div>
+</div>
+{%  block javascript %}
+<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+{% javascripts
+    'bundles/fosjsrouting/js/router.js'
+    'js/jquery.js'
+    'js/jquery-ui.js'
+    'libraries/chosen/jquery.chosen.js'
+    'js/shorten.js'
+    'js/app.js'
+    'js/nexus.js'
+    'libraries/fancybox/jquery.fancybox.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.8/datatables.min.js"></script>
+{% endjavascripts %}
+{%  endblock %}
+</body>
+</html>
