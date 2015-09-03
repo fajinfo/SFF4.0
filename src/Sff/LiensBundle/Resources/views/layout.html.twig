@@ -1,0 +1,10 @@
+{% extends ':admin:layout.html.twig' %}
+
+{% block sidebar %}
+    <div class="Sidebar">
+        <div class="SectionTitle">Catégories</div>
+        <div class="SectionContent">
+               {{ render(controller("SffLiensBundle:Categories:categoriesBloc")) }}
+        </div>
+    </div>
+{% endblock %}

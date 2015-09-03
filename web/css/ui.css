@@ -1,0 +1,96 @@
+@media (min-width: 768px) {
+    .navbar-collapse {
+        height: auto;
+        border-top: 0;
+        box-shadow: none;
+        max-height: none;
+        padding-left:0;
+        padding-right:0;
+    }
+    .navbar-collapse.collapse {
+        display: block !important;
+        width: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important;
+    }
+    .navbar-collapse.in {
+        overflow-x: visible;
+    }
+    .navbar
+    {
+        max-width:300px;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .navbar-nav,
+    .navbar-nav > li,
+    .navbar-left,
+    .navbar-right,
+    .navbar-header
+    {float:none !important;}
+
+    .navbar-right .dropdown-menu {left:0;right:auto;}
+    .navbar-collapse .navbar-nav.navbar-right:last-child {
+        margin-right: 0;
+    }
+}
+
+/* FJORIS */
+
+.panel-heading {
+    color: #CC0000 !important;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 16px;
+}
+.categorieLiens {
+    list-style: none;
+}
+.categorieLiens div {
+    display: inline-block;
+    color: #FFFFFF;
+    background: #CC0000;
+    width: 100%;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 5px;
+    transform: skew(-20deg, 0deg);
+    -ms-transform: skew(-20deg, 0deg);
+    -webkit-transform: skew(-20deg, 0deg);
+}
+.texteCategorie {
+    display: inline-block;
+    width: 100%;
+    transform: skew(20deg, 0deg);
+    -ms-transform: skew(20deg, 0deg);
+    -webkit-transform: skew(20deg, 0deg);
+}
+.texteCategorie > .fa {
+    display:block;
+    float: right;
+}
+.listeLiens > li {
+    list-style: none;
+    border-bottom: 2px solid black;
+    padding: 5px;
+}
+.listeLiens > li:last-child {
+    border: none;
+}
+.liens {
+    color: #000000;
+}
+.liens > em {
+    display: block;
+    color: #777777;
+    font-style: normal;
+}
+.liens:hover {
+    color: #000000;
+}
+.corrompu {
+    display: block;
+    width: 20px;
+    float: right;
+    color: #BBBBBB;
+}

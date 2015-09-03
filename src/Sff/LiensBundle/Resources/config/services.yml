@@ -1,0 +1,3 @@
+services:
+    sff_liens.validator:
+       class: Sff\LiensBundle\Validator

@@ -1,0 +1,34 @@
+{% extends ':email:layoutMail.html.twig' %}
+{% block corps %}
+    <p>Chèr Modérateur,</p>
+    <p>Un utilisateur vient de signaler un lien corrompu :</p>
+    <table>
+        <tr>
+            <th>Titre : </th>
+            <td>{{ lien.titre }}</td>
+        </tr>
+        <tr>
+            <th>Url : </th>
+            <td><a href="{{ lien.url }}">{{ lien.url }}</a></td>
+        </tr>
+        <tr>
+            <th>Description : </th>
+            <td>{{ lien.description }}</td>
+        </tr>
+        <tr>
+            <th>Catégorie : </th>
+            <td>{{ lien.categorie }}</td>
+        </tr>
+        <tr>
+            <th>Signalé par : </th>
+            <td>{{ app.user.nom }} {{ app.user.prenom }} ({{ app.user.username }})<br/><a href="mailto:{{ app.user.email }}">{{ app.user.email }}</a></td>
+        </tr>
+        <tr>
+            <th>Raison invoquée : </th>
+            <td>{{ annonce.remarque|nl2br }}</td>
+        </tr>
+    </table>
+    <p>Voici les options à votre disposition :<br/><br/>
+        <a href="{{ url('admin_liens_valider', { 'id': lien.id }) }}">Valider le lien</a><br/>
+        <a href="{{ url('admin_liens_modifier', { 'id': lien.id }) }}">Modifier ou Supprimer le lien</a></p>
+{%  endblock %}

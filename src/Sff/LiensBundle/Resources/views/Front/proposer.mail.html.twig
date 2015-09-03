@@ -1,0 +1,31 @@
+{% extends ':email:layoutMail.html.twig' %}
+
+{% block corps %}
+    <p>Chèr Modérateur,</p>
+    <p>Un utilisateur vient de proposer un nouveau lien :</p>
+    <table>
+        <tr>
+            <th>Titre : </th>
+            <td>{{ lien.titre }}</td>
+        </tr>
+        <tr>
+            <th>Url : </th>
+            <td><a href="{{ lien.url }}">{{ lien.url }}</a></td>
+        </tr>
+        <tr>
+            <th>Description : </th>
+            <td>{{ lien.description }}</td>
+        </tr>
+        <tr>
+            <th>Catégorie : </th>
+            <td>{{ lien.categorie }}</td>
+        </tr>
+        <tr>
+            <th>Utilisateur : </th>
+            <td>{{ lien.user.nom }} {{ lien.user.prenom }} ({{ lien.user.username }})<br/><a href="mailto:{{ lien.user.email }}">{{ lien.user.email }}</a></td>
+        </tr>
+    </table>
+    <p>Voici les options à votre disposition :<br/><br/>
+    <a href="{{ url('admin_liens_valider', { 'id': lien.id }) }}">Valider le lien</a><br/>
+    <a href="{{ url('admin_liens_modifier', { 'id': lien.id }) }}">Modifier le lien</a></p>
+{%  endblock %}

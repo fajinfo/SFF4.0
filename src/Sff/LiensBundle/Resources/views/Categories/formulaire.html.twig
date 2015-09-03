@@ -1,0 +1,40 @@
+{%  set titre = "Editer une catégorie de lien" %}
+{% extends 'SffLiensBundle::layout.html.twig' %}
+
+{% block actions %}
+    <a class="ShowLoading" href="{{ path('admin_liens_liste') }}">Retour</a>
+    {%  if categorie is defined %}
+        <a class="ShowLoading" onclick="$.fancybox.open({
+            href: $(this).attr('href'),
+            type:'ajax',
+            fitToView:false,
+            padding:0,
+            modal: true,
+            openEffect:'none',
+            closeEffect:'none',
+            topRatio:0.1});
+        return false;" href="{{ path('admin_liens_categories_supprimer', { 'id': categorie.id }) }}" title="Supprimer">Supprimer</a>
+    {% endif %}
+{% endblock %}
+
+{% block corps %}
+    <form method="post">
+        <table class="FormLayout">
+            <tr>
+                <td class="Label">{{ form_label(form.titre) }}</td>
+                <td class="Field">{{ form_widget(form.titre, {'attr': {'class': 'Size2'}})  }} <div class="Error">{{ form_errors(form.titre) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.parent) }}</td>
+                <td class="Field">{{ form_widget(form.parent, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.parent) }}</div></td>
+            </tr>
+            <tr class="Bottom">
+                <td class="Label"><br/></td>
+                <td>
+                    <button class="Button" type="submit">Sauvegarder</button>
+                </td>
+            </tr>
+        </table>
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

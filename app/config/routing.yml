@@ -1,3 +1,7 @@
+sff_liens:
+    resource: "@SffLiensBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sff_admin:
     resource: "@SffAdminBundle/Resources/config/routing.yml"
     prefix:   /

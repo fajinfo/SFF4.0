@@ -1,0 +1,17 @@
+{% set titre = 'Proposer un lien' %}
+{% extends '::layout.html.twig' %}
+
+{% block corps %}
+    <div class="panel panel-default">
+        <div class="panel-heading">PROPOSER UN LIEN</div>
+        <div class="panel-body">
+            <p class="info">En remplissant ce formulaire, vous pouvez proposer un lien. Après validation ce dernier sera
+                disponible dans la section "Liens Utiles".</p>
+
+            <form method="post" {{ form_enctype(form) }} role="form">
+                {{ form_rest(form) }}
+                <input type="submit" class="btn btn-primary"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

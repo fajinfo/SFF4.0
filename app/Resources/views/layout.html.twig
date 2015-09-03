@@ -2,12 +2,61 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% if titre is defined %}
+            <title>Swiss-Firefighters - {{ titre }}</title>
+        {% else %}
+            <title>Swiss-Firefighters - Portail web des sapeurs pompiers</title>
+        {% endif %}
+
+        {% stylesheets filter='cssrewrite'
+        'css/bootstrap.min.css'
+        'css/bootstrap-theme.min.css'
+        'css/font-awesome.css'
+        'css/ui.css'%}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+            <nav class="navbar navbar-default" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Swiss-Firefighters</a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{ path('liens') }}">LIENS UTILES</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container">
+                <div class="row">
+                {% block corps %}{% endblock %}
+                </div>
+            </div>
+        {%  block javascript %}
+            <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+            {% javascripts
+            'bundles/fosjsrouting/js/router.js'
+            'js/jquery.js'
+            'js/jquery-ui.js'
+            'js/bootstrap.min.js'
+            'libraries/fancybox/jquery.fancybox.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.8/datatables.min.js"></script>
+            {% endjavascripts %}
+        {%  endblock %}
+        </div>
     </body>
 </html>

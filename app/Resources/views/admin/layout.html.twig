@@ -78,6 +78,11 @@
     <a class="ShowLoading" href="{{ path('sff_admin_homepage') }}"><span
                 style="background-image: url({{ asset('images/nav_dashboard.png') }})" class="Icon"></span><span
                 class="Label">Tableau de bord</span></a>
+    {% if is_granted('ROLE_MODERATEUR') %}
+    <a class="ShowLoading" href="{{ path('admin_liens_liste') }}"><span
+                style="background-image: url({{ asset('images/nav_liens.png') }})" class="Icon"></span><span
+                class="Label">Liens</span></a>
+    {% endif %}
 
     {% if is_granted('ROLE_SUPER_ADMIN') %}
     <a class="ShowLoading" href="{{ path('admin_user_liste') }}"><span
@@ -89,6 +94,8 @@
     {% endif %}
 
 <div class="Wrapper">
+    {% block sidebar %}
+    {% endblock %}
     <div class="Main">
         <div class="SectionTitle">
             {% if titre is defined %}

@@ -1,0 +1,64 @@
+admin_liens_categories_nouveau:
+    path:   /admin/liens/categories/nouveau
+    defaults: { _controller: SffLiensBundle:Categories:nouveau}
+admin_liens_categories_modifier:
+    path:   /admin/liens/categories/modifier/{id}
+    defaults: { _controller: SffLiensBundle:Categories:modifier }
+    requirements:
+        id: \d+
+admin_liens_categories_supprimer:
+    path:   /admin/liens/categories/supprimer/{id}
+    defaults: { _controller: SffLiensBundle:Categories:supprimer }
+    requirements:
+        id: \d+
+admin_liens_categories_supprimerok:
+    path:   /admin/liens/categories/supprimerok/{id}
+    defaults: { _controller: SffLiensBundle:Categories:supprimerok }
+    requirements:
+        id: \d+
+admin_liens_categories_move:
+    path:   /admin/liens/categories/move/{sens}/{id}
+    defaults: { _controller: SffLiensBundle:Categories:move }
+    requirements:
+        id: \d+
+        sens: up|down
+admin_liens_valider:
+    path:   /admin/liens/valider/{id}
+    defaults: { _controller: SffLiensBundle:Liens:valider }
+    requirements:
+        id: \d+
+admin_liens_liste:
+    path:   /admin/liens/{id}
+    defaults: { _controller: SffLiensBundle:Liens:liste, id: null }
+    requirements:
+        id: \d+
+admin_liens_nouveau:
+    path:   /admin/liens/nouveau
+    defaults: { _controller: SffLiensBundle:Liens:nouveau}
+admin_liens_modifier:
+    path:   /admin/liens/modifier/{id}
+    defaults: { _controller: SffLiensBundle:Liens:modifier }
+    requirements:
+        id: \d+
+admin_liens_supprimer:
+    path:   /admin/liens/supprimer/{id}
+    defaults: { _controller: SffLiensBundle:Liens:supprimer }
+    requirements:
+        id: \d+
+admin_liens_supprimerok:
+    path:   /admin/liens/supprimerok/{id}
+    defaults: { _controller: SffLiensBundle:Liens:supprimerok }
+    requirements:
+        id: \d+
+liens_suivre:
+    path:   /liens/suivre/{slug}
+    defaults: { _controller: SffLiensBundle:Front:suivre }
+liens_annonce_corrompu:
+    path:   /liens/annoncer/{slug}
+    defaults: { _controller: SffLiensBundle:Front:annonceCorrompu }
+liens_proposer:
+    path:   /liens/proposer
+    defaults: { _controller: SffLiensBundle:Front:proposer }
+liens:
+    path:   /liens
+    defaults: { _controller: SffLiensBundle:Front:afficher }

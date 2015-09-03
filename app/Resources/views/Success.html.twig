@@ -1,0 +1,10 @@
+{% set titre = 'Opération réussie' %}
+{% extends '::layout.html.twig' %}
+
+{% block corps %}
+    <div class="panel panel-success">
+        <p>{{ message|raw }}</p>
+        <p>Vous serez automatiquement redirigés dans 3 secondes, si ce n'est pas le cas, cliquez ici : <a href="{{ path(route) }}" class="btn btn-default" role="button">Retour</a></p>
+    </div>
+    <meta http-equiv="refresh" content="3, url={{ path(route) }}"/>
+{% endblock %}

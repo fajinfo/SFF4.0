@@ -1,0 +1,39 @@
+<div class="ModalHeader">
+    <a class="Close" onclick="$.fancybox.close(); return false;" href="#">×</a>
+
+    <h2>Voulez-vous vraiment supprimer ce lien :</h2>
+</div>
+<div class="ModalContent Medium" style="max-height: 752px;">
+    <table class="FormLayout">
+        <tr>
+            <td class="Label">Titre td>
+            <td class="Field">{{ lien.titre }}</td>
+        </tr>
+        <tr>
+            <td class="Label">Url</td>
+            <td class="Field">{{ lien.url }}</td>
+        </tr>
+        <tr>
+            <td class="Label">Visites</td>
+            <td class="Field">{{ lien.visites }}</td>
+        </tr>
+        <tr>
+            <td class="Label">Créateur</td>
+            <td class="Field">{{ lien.user.username }}</td>
+        </tr>
+        <tr>
+            <td class="Label">Catégorie</td>
+            <td class="Field">{{ lien.categorie }}</td>
+        </tr>
+    </table>
+</div>
+<div class="ModalFooter Center">
+    <a class="Button ShowLoading Cancel" href="#" onclick="$.fancybox.close(); return false;">Annuler</a>
+    <a class="Button ShowLoading" href="{{ path('admin_liens_supprimerok', { 'id': lien.id }) }}">Supprimer</button>
+        <div class="Clear"></div>
+</div>
+<script type="text/javascript">
+    $('#Loading').hide();
+    nexus.formatContentCallable();
+</script>
+

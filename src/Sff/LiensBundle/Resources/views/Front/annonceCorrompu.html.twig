@@ -1,0 +1,25 @@
+{% set titre = 'Signaler un lien' %}
+{% extends '::layout.html.twig' %}
+
+{% block corps %}
+    <div class="panel panel-default">
+        <div class="panel-heading">SIGNALER UNE ERREUR SUR UN LIEN</div>
+        <div class="panel-body">
+            <p class="info">Dans le cas ou vous auriez constaté une erreur dans notre annuaire de lien, nous vous
+                invitons à nous transmettre en quelques mots les raisons qui vous font penser que le lien est corrompu,
+                ainsi que des éventuelles information supplémentaire (Changement de nom par exemple).</p>
+
+            <div class="alert alert-info">
+                <h3>{{ lien.titre }}</h3>
+
+                <p>{{ lien.description }}</p>
+
+                <p>(<a href="{{ lien.url }}">{{ lien.url }}</a>)</p>
+            </div>
+            <form method="post" {{ form_enctype(form) }} role="form">
+                {{ form_rest(form) }}
+                <input type="submit" class="btn btn-primary"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{%  set titre = "Editer un lien" %}
+{% extends 'SffLiensBundle::layout.html.twig' %}
+
+{% block actions %}
+    <a class="ShowLoading" href="{{ path('admin_liens_liste') }}">Retour</a>
+    {%  if lien is defined %}
+        <a class="ShowLoading" onclick="$.fancybox.open({
+            href: $(this).attr('href'),
+            type:'ajax',
+            fitToView:false,
+            padding:0,
+            modal: true,
+            openEffect:'none',
+            closeEffect:'none',
+            topRatio:0.1});
+        return false;" href="{{ path('admin_liens_supprimer', { 'id': lien.id }) }}" title="Supprimer">Supprimer</a>
+        <a class="ShowLoading" href="{{ path('admin_liens_valider', { 'id': lien.id }) }}" title="Valider">Valider</a>
+    {% endif %}
+{% endblock %}
+
+{% block corps %}
+    <form method="post">
+        <table class="FormLayout">
+            <tr>
+                <td class="Label">{{ form_label(form.titre) }}</td>
+                <td class="Field">{{ form_widget(form.titre, {'attr': {'class': 'Size2'}})  }} <div class="Error">{{ form_errors(form.titre) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.url) }}</td>
+                <td class="Field">{{ form_widget(form.url, {'attr': {'class': 'Size2', 'placeholder': 'http://'}})  }} <div class="Error">{{ form_errors(form.url) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.description) }}</td>
+                <td class="Field">{{ form_widget(form.description, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.description) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.categorie) }}</td>
+                <td class="Field">{{ form_widget(form.categorie, {'attr': {'class': 'Size2'}}) }}
+                    <div class="Error">{{ form_errors(form.categorie) }}</div>
+                </td>
+            </tr>
+            <tr class="Bottom">
+                <td class="Label"><br/></td>
+                <td>
+                    <button class="Button" type="submit">Sauvegarder</button>
+                </td>
+            </tr>
+        </table>
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

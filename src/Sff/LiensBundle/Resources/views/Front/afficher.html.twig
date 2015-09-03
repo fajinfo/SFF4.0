@@ -1,0 +1,63 @@
+{% set titre = 'Liens Utiles' %}
+{% extends '::layout.html.twig' %}
+
+{% block corps %}
+    {% if is_granted('ROLE_USER') %}
+        <a href="{{ path('liens_proposer') }}">Proposer un nouveau lien</a>
+    {% endif %}
+    <div class="panel panel-default">
+        <div class="panel-heading">LIENS UTILES</div>
+        <div class="panel-body">
+            <ul id="liens">
+                {% for categorie in categories %}
+                    <li class="categorieLiens">
+                        <div><span class="texteCategorie">{{ categorie.titre }}<span
+                                        class="fa fa-caret-down fa-rotate-270"></span></span></div>
+                        <ul>
+                            {% for catEnfant in categorie.children %}
+                                <li class="categorieLiens">
+                                    <div><span class="texteCategorie">{{ catEnfant.titre }}<span
+                                                    class="fa fa-caret-down fa-rotate-270"></span></span></div>
+                                    <ul class="listeLiens">
+                                        {% for lien in catEnfant.liens %}
+                                            <li>{% if is_granted('ROLE_USER') %}
+                                                    <a class="corrompu"
+                                                       href="{{ path('liens_annonce_corrompu', { 'slug': lien.slug}) }}"
+                                                       title="Annoncer un lien corrompu"><span
+                                                                class="fa fa-chain-broken"></span></a>
+                                                {% endif %}
+                                                <a class="liens"
+                                                   href="{{ path('liens_suivre', { 'slug': lien.slug }) }}">{{ lien.titre }}
+                                                    <em>{{ lien.description }}</em></a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <!--<script type="text/javascript">
+        $(document).ready(function() {
+            $(".categorieLiens > ul").hide();
+
+            $(".texteCategorie").click(function() {
+                $principal = $(this).parent(".categorieLiens");
+                $liste = $principal.children('ul');
+                $liste.toggle();
+                $chevron = $(this).find('.fa-caret-down');
+                if($chevron.hasClass("fa-rotate-270")) {
+                    $chevron.removeClass("fa-rotate-270");
+                } else {
+                    $chevron.addClass("fa-rotate-270");
+                }
+            })
+        });
+    </script>-->
+{% endblock %}
