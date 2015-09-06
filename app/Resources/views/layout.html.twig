@@ -61,6 +61,19 @@
 
 <div class="container">
     <div class="row">
+        <div class="row">
+            <div class="col-md-4 col-sm-2 hidden-xs">
+                {% render(controller('SffPubliciteBundle:Front:blocMessagesFetes')) %}
+            </div>
+            <div class="col-md-8 col-sm-10 col-xs-12">
+                <div class="row">
+                    <div class="col-md-5"><div class="input-group"><input class="form-control" type="text" placeholder="rechercher"/><span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span></div></div>
+                    <div class="col-md-5"><button class="button button-default">SE CONNECTER</button></div>
+                    <div class="col-md-2"><span class="glyphicon glyphicon-copyright-mark"></span></div>
+                </div>
+                    {% render(controller('SffPubliciteBundle:Front:blocPublicite')) %}
+            </div>
+        </div>
         {% block corps %}{% endblock %}
     </div>
 </div>
@@ -73,7 +86,6 @@
     'js/bootstrap.min.js'
     'libraries/fancybox/jquery.fancybox.js' %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.8/datatables.min.js"></script>
     {% endjavascripts %}
 {% endblock %}
 </body>

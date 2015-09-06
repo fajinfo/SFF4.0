@@ -1,0 +1,45 @@
+publicite_suivre:
+    path:   /publicite/{titre}
+    defaults: { _controller: SffPubliciteBundle:Front:suivrePublicite }
+admin_publicite_liste:
+    path:   /admin/publicite
+    defaults: { _controller: SffPubliciteBundle:Publicite:liste }
+admin_publicite_nouveau:
+    path:   /admin/publicite/nouveau
+    defaults: { _controller: SffPubliciteBundle:Publicite:nouveau}
+admin_publicite_modifier:
+    path:   /admin/publicite/modifier/{id}
+    defaults: { _controller: SffPubliciteBundle:Publicite:modifier }
+    requirements:
+        id: \d+
+admin_publicite_supprimer:
+    path:   /admin/publicite/supprimer/{id}
+    defaults: { _controller: SffPubliciteBundle:Publicite:supprimer }
+    requirements:
+        id: \d+
+admin_publicite_supprimerok:
+    path:   /admin/publicite/supprimerok/{id}
+    defaults: { _controller: SffPubliciteBundle:Publicite:supprimerok }
+    requirements:
+        id: \d+
+admin_messagesFetes_liste:
+    path:   /admin/messagesFetes
+    defaults: { _controller: SffPubliciteBundle:MessagesFetes:liste }
+admin_messagesFetes_nouveau:
+    path:   /admin/messagesFetes/nouveau
+    defaults: { _controller: SffPubliciteBundle:MessagesFetes:nouveau}
+admin_messagesFetes_modifier:
+    path:   /admin/messagesFetes/modifier/{id}
+    defaults: { _controller: SffPubliciteBundle:MessagesFetes:modifier }
+    requirements:
+        id: \d+
+admin_messagesFetes_supprimer:
+    path:   /admin/messagesFetes/supprimer/{id}
+    defaults: { _controller: SffPubliciteBundle:MessagesFetes:supprimer }
+    requirements:
+        id: \d+
+admin_messagesFetes_supprimerok:
+    path:   /admin/messagesFetes/supprimerok/{id}
+    defaults: { _controller: SffPubliciteBundle:MessagesFetes:supprimerok }
+    requirements:
+        id: \d+

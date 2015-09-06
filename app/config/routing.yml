@@ -1,3 +1,7 @@
+sff_publicite:
+    resource: "@SffPubliciteBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sff_liens:
     resource: "@SffLiensBundle/Resources/config/routing.yml"
     prefix:   /

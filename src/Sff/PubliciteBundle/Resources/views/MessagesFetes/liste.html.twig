@@ -1,0 +1,31 @@
+{% set titre="Liste des Messages" %}
+{% extends('SffPubliciteBundle::layout.html.twig') %}
+
+{% block actions %}
+    <a class="ShowLoading" href="{{ path('admin_messagesFetes_nouveau') }}">Ajouter un message</a>
+{% endblock %}
+
+{%  block corps %}
+    <div id="user_list">
+        <div id="datacontainer">
+            <table id="dataTable" class="Datagrid Fixed">
+                <thead>
+                <tr>
+                    <th>Message</th>
+                    <th>Du</th>
+                    <th>Au</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for message in messages %}
+                    <tr>
+                        <td><a class="ShowLoading" href="{{ path('admin_messagesFetes_modifier', { 'id': message.id }) }}" title="Editer">{{ message.message }}</a></td>
+                        <td data-order="{{ message.dateDebut|date('U') }}">{{ message.dateDebut|date("d/m/Y") }}</td>
+                        <td data-order="{{ message.dateFin|date('U') }}">{{ message.dateFin|date('d/m/Y') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

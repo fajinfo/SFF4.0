@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Sff\AdminBundle\SffAdminBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Sff\LiensBundle\SffLiensBundle(),
+            new Sff\PubliciteBundle\SffPubliciteBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

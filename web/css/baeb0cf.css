@@ -2132,3 +2132,12 @@
     float: right;
     color: #BBBBBB;
 }
+.pub {
+    padding: 10px;
+}
+.message {
+    overflow: auto;
+    font-size: 3em;
+    font-weight: bold;
+    padding: 25px;
+}

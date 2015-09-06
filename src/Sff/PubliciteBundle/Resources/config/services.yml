@@ -1,0 +1,4 @@
+services:
+#    sff_publicite.example:
+#        class: Sff\PubliciteBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

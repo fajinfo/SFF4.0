@@ -1,0 +1,44 @@
+{%  set titre = "Editer un message" %}
+{% extends 'SffPubliciteBundle::layout.html.twig' %}
+
+{% block actions %}
+    <a class="ShowLoading" href="{{ path('admin_messagesFetes_liste') }}">Retour</a>
+    {%  if message is defined %}
+        <a class="ShowLoading" onclick="$.fancybox.open({
+            href: $(this).attr('href'),
+            type:'ajax',
+            fitToView:false,
+            padding:0,
+            modal: true,
+            openEffect:'none',
+            closeEffect:'none',
+            topRatio:0.1});
+        return false;" href="{{ path('admin_messagesFetes_supprimer', { 'id': message.id }) }}" title="Supprimer">Supprimer</a>
+    {% endif %}
+{% endblock %}
+
+{% block corps %}
+    <form method="post">
+        <table class="FormLayout">
+            <tr>
+                <td class="Label">{{ form_label(form.message) }}</td>
+                <td class="Field">{{ form_widget(form.message, {'attr': {'class': 'Size2'}})  }} <div class="Error">{{ form_errors(form.message) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.dateDebut) }}</td>
+                <td class="Field">{{ form_widget(form.dateDebut, {'attr': {'class': 'Size2', 'placeholder': 'http://'}})  }} <div class="Error">{{ form_errors(form.dateDebut) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.dateFin) }}</td>
+                <td class="Field">{{ form_widget(form.dateFin, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.dateFin) }}</div></td>
+            </tr>
+            <tr class="Bottom">
+                <td class="Label"><br/></td>
+                <td>
+                    <button class="Button" type="submit">Sauvegarder</button>
+                </td>
+            </tr>
+        </table>
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

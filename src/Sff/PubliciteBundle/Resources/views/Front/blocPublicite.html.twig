@@ -1,0 +1,5 @@
+{% if publicite %}
+<div class="pub pull-right">
+    <a href="{{ path('publicite_suivre', { 'titre': publicite.titre }) }}"><img src="{{ asset(publicite.imagePath) }}" alt="{{ publicite.titre }}" /></a>
+</div>
+{% endif %}

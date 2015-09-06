@@ -13,6 +13,9 @@
     'css/nexus.css'
     'libraries/fancybox/jquery.fancybox.css'
     'libraries/chosen/jquery.chosen.css'
+        'libraries/jquery-ui/jquery-ui.min.css'
+        'libraries/jquery-ui/jquery-ui.structure.min.css'
+        'libraries/jquery-ui/jquery-ui.theme.min.css'
     'css/admin.css'
     'css/datatables.min.css'
     'css/font-awesome.css'%}
@@ -83,7 +86,11 @@
                 style="background-image: url({{ asset('images/nav_liens.png') }})" class="Icon"></span><span
                 class="Label">Liens</span></a>
     {% endif %}
-
+    {% if is_granted('ROLE_ADMIN') %}
+    <a class="ShowLoading" href="{{ path('admin_publicite_liste') }}"><span
+                style="background-image: url({{ asset('images/nav_publicite.png') }})" class="Icon"></span><span
+                class="Label">Publicité</span></a>
+    {% endif %}
     {% if is_granted('ROLE_SUPER_ADMIN') %}
     <a class="ShowLoading" href="{{ path('admin_user_liste') }}"><span
                 style="background-image: url({{ asset('images/nav_users.png') }})" class="Icon"></span><span
@@ -120,15 +127,19 @@
 {% javascripts
     'bundles/fosjsrouting/js/router.js'
     'js/jquery.js'
-    'js/jquery-ui.js'
+    'libraries/jquery-ui/jquery-ui.min.js'
+    'js/datepicker-fr.js'
     'libraries/chosen/jquery.chosen.js'
     'js/shorten.js'
     'js/app.js'
     'js/nexus.js'
     'libraries/fancybox/jquery.fancybox.js' %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.8/datatables.min.js"></script>
 {% endjavascripts %}
+    <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.8/datatables.min.js"></script>
+    <script type="text/javascript">
+            $( ".Datepicker" ).datepicker( $.datepicker.regional[ "fr" ]).addClass('Size2');
+    </script>
 {%  endblock %}
 </body>
 </html>

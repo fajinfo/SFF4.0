@@ -1,0 +1,37 @@
+{% set titre="Liste des Publicités" %}
+{% extends('SffPubliciteBundle::layout.html.twig') %}
+
+{% block actions %}
+    <a class="ShowLoading" href="{{ path('admin_publicite_nouveau') }}">Ajouter une publicité</a>
+{% endblock %}
+
+{%  block corps %}
+    <div id="user_list">
+        <div id="datacontainer">
+            <table id="dataTable" class="Datagrid Fixed">
+                <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Url</th>
+                    <th>Du</th>
+                    <th>Au</th>
+                    <th>Affichages</th>
+                    <th>Clics</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for publicite in publicites %}
+                    <tr>
+                        <td><a class="ShowLoading" href="{{ path('admin_publicite_modifier', { 'id': publicite.id }) }}" title="Editer">{{ publicite.titre }}</a></td>
+                        <td><a href="{{ publicite.url }}">{{ publicite.url }}</a></td>
+                        <td data-order="{{ publicite.dateDebut|date('U') }}">{{ publicite.dateDebut|date("d/m/Y") }}</td>
+                        <td data-order="{{ publicite.dateFin|date('U') }}">{{ publicite.dateFin|date('d/m/Y') }}</td>
+                        <td data-order="{{ publicite.maxAffichage }}">{{ publicite.nbAffichage }} / {{ publicite.maxAffichage }}</td>
+                        <td data-order="{{ publicite.maxClic }}">{{ publicite.nbClic }} / {{ publicite.maxClic }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends ':admin:layout.html.twig' %}
+
+{% block sidebar %}
+    <div class="Sidebar">
+        <div class="SectionTitle">Publicités</div>
+        <div class="SectionContent">
+            <ul class="Tree">
+                <li><a class="ShowLoading" href="{{ path('admin_publicite_liste') }}">Publicités</a></li>
+                <li><a class="ShowLoading" href="{{ path('admin_messagesFetes_liste') }}">Messages Fêtes</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

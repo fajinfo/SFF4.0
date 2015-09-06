@@ -1,0 +1,60 @@
+{%  set titre = "Editer une publicité" %}
+{% extends 'SffPubliciteBundle::layout.html.twig' %}
+
+{% block actions %}
+    <a class="ShowLoading" href="{{ path('admin_publicite_liste') }}">Retour</a>
+    {%  if publicite is defined %}
+        <a class="ShowLoading" onclick="$.fancybox.open({
+            href: $(this).attr('href'),
+            type:'ajax',
+            fitToView:false,
+            padding:0,
+            modal: true,
+            openEffect:'none',
+            closeEffect:'none',
+            topRatio:0.1});
+        return false;" href="{{ path('admin_publicite_supprimer', { 'id': publicite.id }) }}" title="Supprimer">Supprimer</a>
+    {% endif %}
+{% endblock %}
+
+{% block corps %}
+    <form method="post" {{ form_enctype(form) }}>
+        <table class="FormLayout">
+            <tr>
+                <td class="Label">{{ form_label(form.titre) }}</td>
+                <td class="Field">{{ form_widget(form.titre, {'attr': {'class': 'Size2'}})  }} <div class="Error">{{ form_errors(form.titre) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.url) }}</td>
+                <td class="Field">{{ form_widget(form.url, {'attr': {'class': 'Size2', 'placeholder': 'http://'}})  }} <div class="Error">{{ form_errors(form.url) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.file) }}</td>
+                <td class="Field">{{ form_widget(form.file, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.file) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.dateDebut) }}</td>
+                <td class="Field">{{ form_widget(form.dateDebut, {'attr': {'class': 'Datepicker'}}) }} <div class="Error">{{ form_errors(form.dateDebut) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.dateFin) }}</td>
+                <td class="Field">{{ form_widget(form.dateFin, {'attr': {'class': 'Datepicker'}}) }} <div class="Error">{{ form_errors(form.dateFin) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.maxAffichage) }}</td>
+                <td class="Field">{{ form_widget(form.maxAffichage, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.maxAffichage) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.maxClic) }}</td>
+                <td class="Field">{{ form_widget(form.maxClic, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.maxClic) }}</div></td>
+            </tr>
+            <tr class="Bottom">
+                <td class="Label"><br/></td>
+                <td>
+                    <button class="Button" type="submit">Sauvegarder</button>
+                </td>
+            </tr>
+        </table>
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

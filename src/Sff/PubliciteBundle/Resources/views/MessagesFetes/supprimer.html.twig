@@ -1,0 +1,23 @@
+<div class="ModalHeader">
+    <a class="Close" onclick="$.fancybox.close(); return false;" href="#">×</a>
+
+    <h2>Voulez-vous vraiment supprimer ce message :</h2>
+</div>
+<div class="ModalContent Medium" style="max-height: 752px;">
+    <table class="FormLayout">
+        <tr>
+            <td class="Label">Message<td>
+            <td class="Field">{{ message.message }}</td>
+        </tr>
+    </table>
+</div>
+<div class="ModalFooter Center">
+    <a class="Button ShowLoading Cancel" href="#" onclick="$.fancybox.close(); return false;">Annuler</a>
+    <a class="Button ShowLoading" href="{{ path('admin_messagesFetes_supprimerok', { 'id': message.id }) }}">Supprimer</button>
+        <div class="Clear"></div>
+</div>
+<script type="text/javascript">
+    $('#Loading').hide();
+    nexus.formatContentCallable();
+</script>
+

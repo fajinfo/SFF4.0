@@ -2264,12 +2264,6 @@ input[disabled], input[readonly], textarea[disabled], textarea[readonly] {
     background-color: #efefef
 }
 
-input[type=file] {
-    height: 26px;
-    filter: alpha(opacity=0);
-    opacity: 0
-}
-
 input[disabled], textarea[disabled] {
     text-shadow: 0 1px 0 white;
     color: #aca899
