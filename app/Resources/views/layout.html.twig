@@ -1,62 +1,80 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        {% if titre is defined %}
-            <title>Swiss-Firefighters - {{ titre }}</title>
-        {% else %}
-            <title>Swiss-Firefighters - Portail web des sapeurs pompiers</title>
-        {% endif %}
+<head>
+    <meta charset="UTF-8"/>
+    {% if titre is defined %}
+        <title>Swiss-Firefighters - {{ titre }}</title>
+    {% else %}
+        <title>Swiss-Firefighters - Portail web des sapeurs pompiers</title>
+    {% endif %}
 
-        {% stylesheets filter='cssrewrite'
-        'css/bootstrap.min.css'
-        'css/bootstrap-theme.min.css'
-        'css/font-awesome.css'
-        'css/ui.css'%}
-        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
-        {% endstylesheets %}
+    {% stylesheets filter='cssrewrite'
+    'css/bootstrap.min.css'
+    'css/bootstrap-theme.min.css'
+    'css/font-awesome.css'
+    'css/ui.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
 
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-            <nav class="navbar navbar-default" role="navigation">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Swiss-Firefighters</a>
-                </div>
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('apple-touch-icon-57x57.png') }}"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('apple-touch-icon-60x60.png') }}"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('apple-touch-icon-72x72.png') }}"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('apple-touch-icon-76x76.png') }}"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('apple-touch-icon-114x114.png') }}"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('apple-touch-icon-120x120.png') }}"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('apple-touch-icon-144x144.png') }}"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('apple-touch-icon-152x152.png') }}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon-180x180.png') }}"/>
+    <link rel="icon" type="image/png" href="{{ asset('favicon-32x32.png') }}" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="{{ asset('android-chrome-192x192.png') }}" sizes="192x192"/>
+    <link rel="icon" type="image/png" href="{{ asset('favicon-96x96.png') }}" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="{{ asset('favicon-16x16.png') }}" sizes="16x16"/>
+    <link rel="manifest" href="{{ asset('manifest.json') }}"/>
+    <meta name="apple-mobile-web-app-title" content="Swiss Firefighters"/>
+    <meta name="application-name" content="Swiss Firefighters"/>
+    <meta name="msapplication-TileColor" content="#ff0000"/>
+    <meta name="msapplication-TileImage" content="{{ asset('mstile-144x144.png') }}"/>
+    <meta name="theme-color" content="#ff0000"/>
 
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ path('liens') }}">LIENS UTILES</a></li>
-                    </ul>
-                </div>
-            </nav>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Swiss-Firefighters</a>
+    </div>
 
-            <div class="container">
-                <div class="row">
-                {% block corps %}{% endblock %}
-                </div>
-            </div>
-        {%  block javascript %}
-            <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-            {% javascripts
-            'bundles/fosjsrouting/js/router.js'
-            'js/jquery.js'
-            'js/jquery-ui.js'
-            'js/bootstrap.min.js'
-            'libraries/fancybox/jquery.fancybox.js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.8/datatables.min.js"></script>
-            {% endjavascripts %}
-        {%  endblock %}
-        </div>
-    </body>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="{{ path('liens') }}">LIENS UTILES</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        {% block corps %}{% endblock %}
+    </div>
+</div>
+{% block javascript %}
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    {% javascripts
+    'bundles/fosjsrouting/js/router.js'
+    'js/jquery.js'
+    'js/jquery-ui.js'
+    'js/bootstrap.min.js'
+    'libraries/fancybox/jquery.fancybox.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.8/datatables.min.js"></script>
+    {% endjavascripts %}
+{% endblock %}
+</body>
 </html>

@@ -20,8 +20,6 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Sff\AdminBundle\SffAdminBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new JMS\AopBundle\JMSAopBundle(),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Sff\LiensBundle\SffLiensBundle(),
         );
 

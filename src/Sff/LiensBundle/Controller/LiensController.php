@@ -3,18 +3,15 @@
 namespace Sff\LiensBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use JMS\SecurityExtraBundle\Annotation\Secure;
 use Sff\LiensBundle\Entity\Liens;
 use Sff\LiensBundle\Form\LiensType;
 use Symfony\Component\HttpFoundation\Request;
 
 class LiensController extends Controller
 {
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function listeAction($id)
     {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('SffLiensBundle:Liens');
         if($id == null) {
@@ -26,10 +23,8 @@ class LiensController extends Controller
         }
         return $this->render('SffLiensBundle:Liens:liste.html.twig', array('liens' => $liens));
     }
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function validerAction(Liens $lien) {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $em= $this->getDoctrine()->getManager();
         $lien->setValide(true);
         $lien->setCorrompu(false);
@@ -37,10 +32,8 @@ class LiensController extends Controller
         return $this->redirect($this->generateUrl('admin_liens_liste', array('id' => $lien->getCategorie()->getId())));
     }
 
-    /*
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function nouveauAction() {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $lien = new Liens();
         $lien->setUser($this->getUser());
         $lien->setValide(true);
@@ -65,11 +58,9 @@ class LiensController extends Controller
         return $this->render('SffLiensBundle:Liens:formulaire.html.twig', array( 'form' => $form->createView()));
     }
 
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function modifierAction(Liens $lien)
     {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $form = $this->createForm(new LiensType(), $lien);
 
         $request = $this->get('request');
@@ -88,20 +79,17 @@ class LiensController extends Controller
         return $this->render('SffLiensBundle:Liens:formulaire.html.twig', array( 'form' => $form->createView(), 'lien' => $lien));
     }
 
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function supprimerAction(Request $request, Liens $lien)
     {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         if(!$request->isXmlHttpRequest()) {
             throw new \Exception('Cette resource n\'est pas accessible');
         }
         return $this->render('SffLiensBundle:Liens:supprimer.html.twig', array('lien' => $lien));
     }
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
+
     public function supprimerOkAction(Liens $lien) {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $em= $this->getDoctrine()->getManager();
         $em->remove($lien);
         $em->flush();

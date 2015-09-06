@@ -5,14 +5,11 @@ namespace Sff\LiensBundle\Controller;
 use Sff\LiensBundle\Entity\Categories;
 use Sff\LiensBundle\Form\CategoriesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class CategoriesController extends Controller
 {
-     /*
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function nouveauAction() {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $categorie = new Categories();
 
         $form = $this->createForm(new CategoriesType(), $categorie);
@@ -33,11 +30,9 @@ class CategoriesController extends Controller
         return $this->render('SffLiensBundle:Categories:formulaire.html.twig', array( 'form' => $form->createView()));
     }
 
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function modifierAction(Categories $categories)
     {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $form = $this->createForm(new CategoriesType, $categories, array('attr' => array('class' => 'false')));
 
         $request = $this->get('request');
@@ -56,20 +51,16 @@ class CategoriesController extends Controller
         return $this->render('SffLiensBundle:Categories:formulaire.html.twig', array( 'form' => $form->createView(), 'categorie' => $categories));
     }
 
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function supprimerAction(Request $request, Categories $categories)
     {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         if(!$request->isXmlHttpRequest()) {
             throw new \Exception('Cette resource n\'est pas accessible');
         }
         return $this->render('SffLiensBundle:Categories:supprimer.html.twig', array('categorie' => $categories));
     }
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function supprimerOkAction(Categories $categories) {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $em= $this->getDoctrine()->getManager();
         $repository = $em->getRepository('SffLiensBundle:Liens');
         $liens = $repository->findByCategorie($categories);
@@ -81,11 +72,9 @@ class CategoriesController extends Controller
         return $this->redirect($this->generateUrl('admin_liens_liste'));
     }
 
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function categoriesBlocAction()
     {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $repo = $this->getDoctrine()
             ->getManager()->getRepository('SffLiensBundle:Categories');
         $options = array(
@@ -108,11 +97,9 @@ class CategoriesController extends Controller
         );
         return $this->render('SffLiensBundle:Categories:bloc.html.twig', array('htmlTree' => $htmlTree));
     }
-    /**
-     * @Secure(roles="ROLE_MODERATEUR")
-     */
     public function moveAction(Categories $categories, $sens)
     {
+        $this->denyAccessUnlessGranted('ROLE_MODERATEUR', null, 'Vous n\'avez pas les droits nécessaires');
         $em= $this->getDoctrine()->getManager();
         $repo = $em->getRepository('SffLiensBundle:Categories');
         if($sens == 'up') {

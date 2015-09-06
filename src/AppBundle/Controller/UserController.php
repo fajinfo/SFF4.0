@@ -8,14 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Form\UserType;
-use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class UserController extends Controller {
-    /**
-     * @Secure(roles="ROLE_SUPER_ADMIN")
-     */
-    public function ListeAction()
+    public function listeAction()
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, 'Vous n\'avez pas les droits nécessaires');
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:User');
@@ -23,31 +20,24 @@ class UserController extends Controller {
         $users = $repository->findAll();
         return $this->render('AppBundle:user:liste.html.twig', array('users' => $users));
     }
-
-    /**
-     * @Secure(roles="ROLE_SUPER_ADMIN")
-     */
-    public function SupprimerAction(Request $request, User $user)
+    public function supprimerAction(Request $request, User $user)
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, 'Vous n\'avez pas les droits nécessaires');
         if(!$request->isXmlHttpRequest()) {
             throw new \Exception('Cette resource n\'est pas accessible');
         }
         return $this->render('AppBundle:user:supprimer.html.twig', array('user' => $user));
     }
-    /**
-     * @Secure(roles="ROLE_SUPER_ADMIN")
-     */
-    public function SupprimerOkAction(User $user) {
+    public function supprimerOkAction(User $user) {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, 'Vous n\'avez pas les droits nécessaires');
         $em= $this->getDoctrine()->getManager();
         $em->remove($user);
         $em->flush();
         return $this->redirect($this->generateUrl('admin_user_liste'));
     }
-    /**
-     * @Secure(roles="ROLE_SUPER_ADMIN")
-     */
     public function nouveauAction()
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, 'Vous n\'avez pas les droits nécessaires');
         $user = new User;
         $form = $this->createForm(new UserType, $user, array('attr'=> array('class' => 'create')));
 
@@ -66,11 +56,9 @@ class UserController extends Controller {
 
         return $this->render('AppBundle:user:formulaire.html.twig', array( 'form' => $form->createView()));
     }
-    /**
-     * @Secure(roles="ROLE_SUPER_ADMIN")
-     */
     public function modifierAction(User $user)
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, 'Vous n\'avez pas les droits nécessaires');
         $form = $this->createForm(new UserType, $user, array('attr' => array('class' => 'false')));
 
         $request = $this->get('request');
@@ -88,11 +76,9 @@ class UserController extends Controller {
 
         return $this->render('AppBundle:user:formulaire.html.twig', array( 'form' => $form->createView(), 'user' => $user));
     }
-    /**
-     * @Secure(roles="ROLE_REDACTEUR")
-     */
     public function changePasswordAction(User $user)
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN', null, 'Vous n\'avez pas les droits nécessaires');
         $currentuser = $this->get('security.context')->getToken()->getUser();
 
         if(!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {

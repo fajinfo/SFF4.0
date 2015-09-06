@@ -57,6 +57,7 @@
     transform: skew(-20deg, 0deg);
     -ms-transform: skew(-20deg, 0deg);
     -webkit-transform: skew(-20deg, 0deg);
+    cursor: pointer;
 }
 .texteCategorie {
     display: inline-block;
