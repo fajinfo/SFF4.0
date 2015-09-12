@@ -93,6 +93,13 @@ class Publicite
     private $file;
     private $tempFilename;
 
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="lastReset", type="datetime", nullable=true)
+     */
+    private $lastReset;
+
 
     /**
      * Get id
@@ -368,6 +375,18 @@ class Publicite
     }
     public function getFile() {
         return $this->file;
+    }
+    public function resetCompteurs() {
+        $this->nbAffichage = 0;
+        $this->nbClic = 0;
+        $this->lastReset = new \DateTime();
+    }
+    public function setLastReset(\DateTime $dateTime){
+        $this->lastReset = $dateTime;
+        return $this;
+    }
+    public function getLastReset() {
+        return $this->lastReset;
     }
 }
 

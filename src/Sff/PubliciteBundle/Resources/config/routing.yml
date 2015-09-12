@@ -22,6 +22,11 @@ admin_publicite_supprimerok:
     defaults: { _controller: SffPubliciteBundle:Publicite:supprimerok }
     requirements:
         id: \d+
+admin_publicite_resetCompteurs:
+    path:   /admin/publicite/resetCompteurs/{id}
+    defaults: { _controller: SffPubliciteBundle:Publicite:resetCompteurs }
+    requirements:
+        id: \d+
 admin_messagesFetes_liste:
     path:   /admin/messagesFetes
     defaults: { _controller: SffPubliciteBundle:MessagesFetes:liste }

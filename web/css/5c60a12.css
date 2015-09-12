@@ -5060,3 +5060,8 @@ div.chzn-container-active .chzn-single-with-drop div b {
 .red {
   background-color: #dd4b39 !important;
 }
+.Info {
+    padding: 10px;
+    color: #0077b3;
+    text-align:center;
+}

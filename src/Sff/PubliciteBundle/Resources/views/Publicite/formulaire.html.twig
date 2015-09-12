@@ -4,6 +4,7 @@
 {% block actions %}
     <a class="ShowLoading" href="{{ path('admin_publicite_liste') }}">Retour</a>
     {%  if publicite is defined %}
+        <a class="ShowLoading" href="{{ path('admin_publicite_resetCompteurs', { 'id': publicite.id }) }}">Remise à zéro compteurs</a>
         <a class="ShowLoading" onclick="$.fancybox.open({
             href: $(this).attr('href'),
             type:'ajax',
@@ -42,11 +43,11 @@
             </tr>
             <tr>
                 <td class="Label">{{ form_label(form.maxAffichage) }}</td>
-                <td class="Field">{{ form_widget(form.maxAffichage, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.maxAffichage) }}</div></td>
+                <td class="Field">{{ form_widget(form.maxAffichage, {'attr': {'class': 'Size2'}}) }} {%  if publicite is defined %}<div class="Info">{{ publicite.nbAffichage }} Affichages depuis le {{ publicite.lastReset|date('d/m/Y') }}</div> {%  endif %}<div class="Error">{{ form_errors(form.maxAffichage) }}</div></td>
             </tr>
             <tr>
                 <td class="Label">{{ form_label(form.maxClic) }}</td>
-                <td class="Field">{{ form_widget(form.maxClic, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.maxClic) }}</div></td>
+                <td class="Field">{{ form_widget(form.maxClic, {'attr': {'class': 'Size2'}}) }} {%  if publicite is defined %}<div class="Info">{{ publicite.nbClic }} Clics depuis le {{ publicite.lastReset|date('d/m/Y') }}</div> {%  endif %} <div class="Error">{{ form_errors(form.maxClic) }}</div></td>
             </tr>
             <tr class="Bottom">
                 <td class="Label"><br/></td>

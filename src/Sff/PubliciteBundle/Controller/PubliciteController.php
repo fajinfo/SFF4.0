@@ -25,6 +25,7 @@ class PubliciteController extends Controller
         $publicite->setNbClic(0);
         $publicite->setDateFin(new \DateTime());
         $publicite->setDateDebut(new \DateTime());
+        $publicite->setLastReset(new \DateTime());
 
         $form = $this->createForm(new PubliciteType(), $publicite);
 
@@ -81,6 +82,14 @@ class PubliciteController extends Controller
         $em->remove($publicite);
         $em->flush();
         return $this->redirect($this->generateUrl('admin_publicite_liste'));
+    }
+
+    public function resetCompteursAction(Publicite $publicite) {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Vous n\'avez pas les droits nécessaires');
+        $em = $this->getDoctrine()->getManager();
+        $publicite->resetCompteurs();
+        $em->flush();
+        return $this->redirect($this->generateUrl('admin_publicite_modifier', array('id' => $publicite->getId())));
     }
 }
 
