@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Sff\LiensBundle\SffLiensBundle(),
             new Sff\PubliciteBundle\SffPubliciteBundle(),
+            new Sff\LexiqueBundle\SffLexiqueBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,3 +1,7 @@
+sff_lexique:
+    resource: "@SffLexiqueBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sff_publicite:
     resource: "@SffPubliciteBundle/Resources/config/routing.yml"
     prefix:   /

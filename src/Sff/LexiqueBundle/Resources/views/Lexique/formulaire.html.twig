@@ -1,0 +1,45 @@
+{%  set titre = "Editer une définition" %}
+{% extends ':admin:layout.html.twig' %}
+
+{% block actions %}
+    <a class="ShowLoading" href="{{ path('admin_lexique_liste') }}">Retour</a>
+    {%  if definition is defined %}
+        <a class="ShowLoading" onclick="$.fancybox.open({
+            href: $(this).attr('href'),
+            type:'ajax',
+            fitToView:false,
+            padding:0,
+            modal: true,
+            openEffect:'none',
+            closeEffect:'none',
+            topRatio:0.1});
+        return false;" href="{{ path('admin_lexique_supprimer', { 'id': definition.id }) }}" title="Supprimer">Supprimer</a>
+        <a class="ShowLoading" href="{{ path('admin_lexique_valider', { 'id': definition.id }) }}" title="Valider">Valider</a>
+    {% endif %}
+{% endblock %}
+
+{% block corps %}
+    <form method="post">
+        <table class="FormLayout">
+            <tr>
+                <td class="Label">{{ form_label(form.terme) }}</td>
+                <td class="Field">{{ form_widget(form.terme, {'attr': {'class': 'Size2'}})  }} <div class="Error">{{ form_errors(form.terme) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.genre) }}</td>
+                <td class="Field">{{ form_widget(form.genre, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.genre) }}</div></td>
+            </tr>
+            <tr>
+                <td class="Label">{{ form_label(form.definition) }}</td>
+                <td class="Field">{{ form_widget(form.definition, {'attr': {'class': 'Size2'}}) }} <div class="Error">{{ form_errors(form.definition) }}</div></td>
+            </tr>
+            <tr class="Bottom">
+                <td class="Label"><br/></td>
+                <td>
+                    <button class="Button" type="submit">Sauvegarder</button>
+                </td>
+            </tr>
+        </table>
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

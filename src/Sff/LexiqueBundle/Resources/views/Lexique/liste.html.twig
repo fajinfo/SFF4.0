@@ -1,0 +1,39 @@
+{% set titre = "Liste des définitions" %}
+{% extends ':admin:layout.html.twig' %}
+
+{% block actions %}
+    <a class="ShowLoading" href="{{ path('admin_lexique_nouveau') }}">Ajouter une définition</a>
+{% endblock %}
+
+{%  block corps %}
+    <div id="user_list">
+        <div id="datacontainer">
+            <table id="dataTable" class="Datagrid Fixed">
+                <thead>
+                <tr>
+                    <th>Terme</th>
+                    <th>Genre</th>
+                    <th>Définition</th>
+                    <th>Valide</th>
+                    <th>Créateur</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for definition in definitions %}
+                    <tr>
+                        <td><a class="ShowLoading" href="{{ path('admin_lexique_modifier', { 'id': definition.id }) }}" title="Editer">{{ definition.terme }}</a></td>
+                        <td>{{ definition.genre }}</td>
+                        <td>{{ definition.definition|slice(0,45) }} ...</td>
+                        <td {% if definition.valide == false %}
+                                data-order="30"><span class="fa fa-check-circle" style="color: red;"></span>
+                            {%  else %}
+                                data-order="10"><span class="fa fa-check-circle" style="color: green;"></span>
+                            {% endif %}</td>
+                        <td>{{ definition.user.username }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

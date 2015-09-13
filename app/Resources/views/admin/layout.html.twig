@@ -90,6 +90,9 @@
     <a class="ShowLoading" href="{{ path('admin_publicite_liste') }}"><span
                 style="background-image: url({{ asset('images/nav_publicite.png') }})" class="Icon"></span><span
                 class="Label">Publicité</span></a>
+    <a class="ShowLoading" href="{{ path('admin_lexique_liste') }}"><span
+                    style="background-image: url({{ asset('images/nav_lexique.png') }})" class="Icon"></span><span
+                    class="Label">Lexique</span></a>
     {% endif %}
     {% if is_granted('ROLE_SUPER_ADMIN') %}
     <a class="ShowLoading" href="{{ path('admin_user_liste') }}"><span

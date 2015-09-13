@@ -1,0 +1,36 @@
+admin_lexique_liste:
+    path:   /admin/lexique
+    defaults: { _controller: SffLexiqueBundle:Lexique:liste }
+admin_lexique_nouveau:
+    path:   /admin/lexique/nouveau
+    defaults: { _controller: SffLexiqueBundle:Lexique:nouveau}
+admin_lexique_modifier:
+    path:   /admin/lexique/modifier/{id}
+    defaults: { _controller: SffLexiqueBundle:Lexique:modifier }
+    requirements:
+        id: \d+
+admin_lexique_supprimer:
+    path:   /admin/lexique/supprimer/{id}
+    defaults: { _controller: SffLexiqueBundle:Lexique:supprimer }
+    requirements:
+        id: \d+
+admin_lexique_supprimerok:
+    path:   /admin/lexique/supprimerok/{id}
+    defaults: { _controller: SffLexiqueBundle:Lexique:supprimerok }
+    requirements:
+        id: \d+
+admin_lexique_valider:
+    path:   /admin/lexique/valider/{id}
+    defaults: { _controller: SffLexiqueBundle:Lexique:valider }
+    requirements:
+        id: \d+
+lexique:
+    path: /lexique
+    defaults: { _controller: SffLexiqueBundle:Front:afficher }
+lexique_pdf:
+    path: /lexique.pdf
+    defaults: { _controller: SffLexiqueBundle:Front:pdf }
+lexique_proposer:
+    path: /lexique/proposer
+    defaults: { _controller: SffLexiqueBundle:Front:proposer }
+    

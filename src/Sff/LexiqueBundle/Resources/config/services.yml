@@ -1,0 +1,4 @@
+services:
+#    sff_lexique.example:
+#        class: Sff\LexiqueBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
